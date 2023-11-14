@@ -1,5 +1,2 @@
-TILE_SIZE = 64
-SCREEN_WIDTH = 12*TILE_SIZE
-SCREEN_HEIGHT = 10*TILE_SIZE
-
-GRASS_COLOR = (50, 168, 50)
+screen_width = 1024
+screen_height = 576
