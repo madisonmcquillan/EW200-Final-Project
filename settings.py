@@ -1,2 +1,2 @@
-screen_width = 768
-screen_height = 576
+screen_width = 825
+screen_height = 600
