@@ -16,6 +16,10 @@ winner_font = pygame.font.Font("assets/fonts/QuirkyRobot.ttf", 80)
 bullet_hit_sound = pygame.mixer.Sound("assets/sounds/Grenade+1.mp3")
 bullet_fire_sound = pygame.mixer.Sound("assets/sounds/Gun+Silencer.mp3")
 
+# music
+pygame.mixer.music.load("assets/sounds/music.mp3")
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.5)
 
 # collisions
 yellow_hit = pygame.USEREVENT + 1
@@ -129,6 +133,7 @@ def main():
             if event.type == red_hit:
                 red_health -= 1
                 bullet_hit_sound.play()
+    
 
             if event.type == yellow_hit:
                 yellow_health -= 1
