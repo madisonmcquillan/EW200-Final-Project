@@ -1,4 +1,4 @@
-# Chomp!
+# This Town Ain't Big Enough for the Both of Us!
 ## By Madison McQuillan
 
 This game is a 2 player game where you try to eliminate the other player. You begin with a health of 10 and must hit the other player 10 times with your bullets before they hit you 10 times in order to win. The maximum number of bullets you can have on the screen is 5, meaning you can not spam the fire button. After one player wins, the screen will announce the results and then the game will reset. Have fun!
@@ -14,3 +14,5 @@ My game incorporates
 * fancy font: used a font found off the internet for the text
 * the walls are hard: both players are constrained to their box on their respective sides of the screen
 * muzak: have continuous music playing in the background 
+* level up: the game increases in difficulty when someone loses health, they become faster
+

@@ -1,6 +1,7 @@
 import pygame
 import sys
 from settings import *
+
 pygame.mixer.init()
 
 pygame.init()
@@ -31,7 +32,8 @@ yellow_spaceship = pygame.transform.rotate(
     pygame.transform.scale(yellow_spaceship, (spaceship_width, spaceship_height)), 90)
 red_spaceship = pygame.image.load("assets/images/spaceship_red.png")
 red_spaceship = pygame.transform.rotate(pygame.transform.scale(red_spaceship, (spaceship_width, spaceship_height)), 270)
-speed = 5
+red_speed = 5
+yellow_speed = 5
 bullet_speed = 7
 max_bullets = 5
 
@@ -56,29 +58,29 @@ def draw_window(red, yellow, red_bullets, yellow_bullets, red_health, yellow_hea
 
 def move_yellow_spaceship(keys_pressed, yellow):
     if keys_pressed[pygame.K_a] and yellow.x > 0:
-        yellow.x -= speed
+        yellow.x -= yellow_speed
     if keys_pressed[pygame.K_d] and yellow.x < border.x - yellow.width:
-        yellow.x += speed
+        yellow.x += yellow_speed
     if keys_pressed[pygame.K_w] and yellow.y > 0:
-        yellow.y -= speed
+        yellow.y -= yellow_speed
     if keys_pressed[pygame.K_s] and yellow.y < HEIGTH - yellow.height - 15:
-        yellow.y += speed
+        yellow.y += yellow_speed
 
 
 def move_red_spaceship(keys_pressed, red):
     if keys_pressed[pygame.K_LEFT] and red.x > border.x + 25:
-        red.x -= speed
+        red.x -= red_speed
     if keys_pressed[pygame.K_RIGHT] and red.x < WIDTH - 40:
-        red.x += speed
+        red.x += red_speed
     if keys_pressed[pygame.K_UP] and red.y > 0:
-        red.y -= speed
+        red.y -= red_speed
     if keys_pressed[pygame.K_DOWN] and red.y < HEIGTH - red.height - 15:
-        red.y += speed
+        red.y += red_speed
 
 
 def handle_bullets(yellow_bullets, red_bullets, yellow, red):
     for bullet in yellow_bullets:
-        bullet.x += speed
+        bullet.x += bullet_speed
         if red.colliderect(bullet):
             pygame.event.post(pygame.event.Event(red_hit))
             yellow_bullets.remove(bullet)
@@ -86,7 +88,7 @@ def handle_bullets(yellow_bullets, red_bullets, yellow, red):
             yellow_bullets.remove(bullet)
 
     for bullet in red_bullets:
-        bullet.x -= speed
+        bullet.x -= bullet_speed
         if yellow.colliderect(bullet):
             pygame.event.post(pygame.event.Event(yellow_hit))
             red_bullets.remove(bullet)
@@ -102,6 +104,9 @@ def draw_winner(text):
 
 
 def main():
+    global red_speed
+    global yellow_speed
+
     red = pygame.Rect(700, 300, spaceship_width, spaceship_height)
     yellow = pygame.Rect(100, 300, spaceship_width, spaceship_height)
 
@@ -132,11 +137,12 @@ def main():
 
             if event.type == red_hit:
                 red_health -= 1
+                red_speed += 1
                 bullet_hit_sound.play()
-    
 
             if event.type == yellow_hit:
                 yellow_health -= 1
+                yellow_speed += 1
                 bullet_hit_sound.play()
 
         winner = ""
