@@ -148,9 +148,13 @@ def main():
         winner = ""
         if red_health <= 0:
             winner = "Yellow Wins! and Red Loses :("
+            red_speed = 5
+            yellow_speed = 5
 
         if yellow_health <= 0:
             winner = "Red Wins! and Yellow Loses :("
+            yellow_speed = 5
+            red_speed = 5
 
         if winner != "":
             draw_winner(winner)
