@@ -137,12 +137,12 @@ def main():
 
             if event.type == red_hit:
                 red_health -= 1
-                red_speed += 1
+                red_speed += 0.5
                 bullet_hit_sound.play()
 
             if event.type == yellow_hit:
                 yellow_health -= 1
-                yellow_speed += 1
+                yellow_speed += 0.5
                 bullet_hit_sound.play()
 
         winner = ""
