@@ -16,3 +16,5 @@ My game incorporates
 * muzak: have continuous music playing in the background 
 * level up: the game increases in difficulty when someone loses health, they become faster
 
+INSTRUCTIONS PDF
+* [Game Instructions.pdf](assets%2FGame%20Instructions.pdf)
